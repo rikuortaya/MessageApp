@@ -16,13 +16,18 @@ const sequelize = new Sequelize(DB_INFO, {
 
 const PORT = 8080;
 
+//const app = express();
+//app.use(express.json());
+//app.use(express.urlencoded({ extended: true }));
+//app.set("view engine", "ejs");
+//app.use("/public", express.static(__dirname + "/public"));
+
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use("/public", express.static(__dirname + "/public"));
-
-
 
 const Messages = sequelize.define('messages', {
   id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
@@ -77,11 +82,11 @@ function setupRoute() {
   });
 }
 
-app.get('/search', (req, res) => {
+  app.get('/search', (req, res) => {
   res.render('search.ejs', { results: [] });
 });
 
-app.post('/search', (req, res) => {
+  app.post('/search', (req, res) => {
   const Op = Sequelize.Op;
   Messages.findAll({
     where: {
