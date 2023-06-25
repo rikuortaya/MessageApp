@@ -1,0 +1,9 @@
+#addMessage {
+  background-color: lightblue;
+  text-align: center;
+}
+
+#addMessage h1 {
+  color: navy;
+  font-size: 24px;
+}
